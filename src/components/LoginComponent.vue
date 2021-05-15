@@ -1,15 +1,16 @@
 <template>
-  <div class="LoginComponent">
-    <p>
-      Type in username and password below</p>
-      <form>
-          <input v-model="this.form.username"/>
-          <input v-model="this.form.password"/>
-      </form>
+    <div class="LoginComponent">
+        <p>
+            Type in username and password below
+        </p>
+        <form>
+            <input v-model="this.form.email" />
+            <input v-model="this.form.password" />
+        </form>
         <button v-on:click="login">Login</button>
+        <button v-on:click="register">Register new user</button>
 
-    
-  </div>
+    </div>
 </template>
 
 <script>
@@ -18,7 +19,7 @@ export default {
         data: function(){
             return {
                 form: {
-                    username: "mail@mail.dk",
+                    email: "mail@mail.dk",
                     password: "LillaKatrinebjerg"
                 }
             }
@@ -44,6 +45,7 @@ export default {
                         localStorage.setItem("token", token.jwt);
                         //Change view to some other component
                         // ...
+                        alert('hurra');
                     }
                     else {
                         alert("Server returned: " + response.statusText);
@@ -52,6 +54,9 @@ export default {
                     alert("Error: " + err);
                 }
                 return;
+            },
+            async register() {
+                alert('not impl');
             }
         }
         
