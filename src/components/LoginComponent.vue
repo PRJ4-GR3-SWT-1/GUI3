@@ -3,10 +3,10 @@
         <p>
             Type in username and password below
         </p>
-        <form>
-            <input v-model="this.form.email" />
-            <input v-model="this.form.password" />
-        </form>
+
+        <input name="this.form.email" v-model="form.email" class="input" type="email" placeholder="Enter email" />
+        <input v-model="form.password" class="input" type="password" placeholder="MeGetAvanc4RetPaSsW0rD" />
+
         <button v-on:click="login">Login</button>
         <button v-on:click="register">Register new user</button>
 
@@ -19,9 +19,10 @@ export default {
         data: function(){
             return {
                 form: {
-                    email: "mail@mail.dk",
-                    password: "LillaKatrinebjerg"
-                }
+                    email: '',
+                    password: ''
+                },
+                andenTing: "hmm"
             }
         },
             
