@@ -4,8 +4,8 @@
             Type in username and password below
         </p>
 
-        <input name="this.form.email" v-model="form.email" class="input" type="email" placeholder="Enter email" />
-        <input v-model="form.password" class="input" type="password" placeholder="MeGetAvanc4RetPaSsW0rD" />
+        <input name="form.email" v-model="form.email" class="input" type="email" placeholder="Enter email" /><br />
+        <input v-model="form.password" class="input" type="password" placeholder="MeGetAvanc4RetPaSsW0rD" /><br />
 
         <button v-on:click="login">Login</button>
         <button v-on:click="register">Register new user</button>
@@ -21,8 +21,7 @@ export default {
                 form: {
                     email: '',
                     password: ''
-                },
-                andenTing: "hmm"
+                }
             }
         },
             
@@ -46,7 +45,7 @@ export default {
                         localStorage.setItem("token", token.jwt);
                         //Change view to some other component
                         // ...
-                        alert('hurra');
+                        this.$router.push('/');
                     }
                     else {
                         alert("Server returned: " + response.statusText);
