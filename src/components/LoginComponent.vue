@@ -14,11 +14,6 @@
         <br />
         
         <button v-on:click="login">Login</button>
-        
-        <div>
-            <p>No user? Register here: </p>
-        </div>
-        <button v-on:click="register">Register new user</button>
 
     </div>
 </template>
@@ -31,8 +26,7 @@ export default {
                 form: {
                     email: '',
                     password: ''
-                },
-                andenTing: "hmm"
+                }
             }
         },
             
@@ -45,7 +39,7 @@ export default {
                 try {
                     let response = await fetch(url, {
                         method: "POST",
-                        body: JSON.stringify(this.form),//Assumes data is in an object called form
+                        body: JSON.stringify(this.form),//Assumes data is in an object called 'form'
                         headers: new Headers({
                             "Content-Type": "application/json"
                         })
@@ -54,9 +48,8 @@ export default {
                     if (response.ok) {
                         let token = await response.json();
                         localStorage.setItem("token", token.jwt);
-                        //Change view to some other component
-                        // ...
-                        alert('hurra');
+                       //Goto frontpage
+                        this.$router.push('/');
                     }
                     else {
                         alert("Server returned: " + response.statusText);
@@ -65,10 +58,8 @@ export default {
                     alert("Error: " + err);
                 }
                 return;
-            },
-            async register() {
-                alert('not impl');
             }
+           
         }
         
     };
