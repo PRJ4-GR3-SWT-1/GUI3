@@ -1,8 +1,8 @@
 <template>
-  <div class="about">
+  <div class="about" style="align-content:center;">
     <h1>Current Jobs</h1>
       <button v-on:click="load">Show Jobs</button>
-      <table>
+      <table width="100%" >
           <thead>
               <tr>
                   <th>Customer</th>
@@ -12,7 +12,7 @@
                   <th>Comments</th>
               </tr>
           </thead>
-          <tr v-for="job in jobs" v-bind:key="job">
+          <tr v-for="job in jobs" v-bind:key="job" >
               <td>{{job.customer}}</td>
               <td>{{job.location}}</td>
               <td>{{job.startDate}}</td>
@@ -65,3 +65,8 @@
         }
     };
     </script>
+<style scoped>
+    tr {
+        border:dotted;
+    }
+</style>
