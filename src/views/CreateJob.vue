@@ -1,30 +1,29 @@
 <template>
     <div class="about">
-        <h1>Create a new Model</h1>
-        <input name="form.email" v-model="form.email" class="input" type="email" placeholder="Enter email" /><br />
-        <input name="form.email" v-model="form.firstname" class="input" type="text" placeholder="First Name" /><br />
-        <input name="form.email" v-model="form.lastname" class="input" type="text" placeholder="Last name" /><br />
-        <input name="form.email" v-model="form.password" class="input" type="password" placeholder="Password" /><br />
-        <input v-model="form.phonenumber" class="input" type="number" placeholder="phone number" /><br />
+        <h1>Create a new Job</h1>
+        <input v-model="form.Custumer" class="input" type="text" placeholder="Custumer" /><br />
+        <input v-model="form.StartDate"  class="input" type="date" /><br />
+        <input v-model.number="form.Days" class="input" type="number" placeholder="Number of days" /><br />
+        <input v-model="form.Location"  class="input" type="text" placeholder="Location" /><br />
+        <input v-model="form.Comments" class="input" type="text" placeholder="Futher comments" /><br />
 
-        <button v-on:click="createModel">Create Model</button>
+        <button v-on:click="createJob">Create new Job</button>
 
 
     </div>
 </template>
 
 
-<script>
-    export default {
-        name: "CreateModelComponent",
+<script>export default {
+        name: "CreateJobComponent",
         data: function () {
             return {
                 form: {
-                    firstname: '',
-                    lastname: '',
-                    email: '',
-                    phonenumber: '',
-                    password: ''
+                    Customer: '',
+                    StartDate: '',
+                    Days: Number,
+                    Location: '',
+                    Comments: ''
                 }
             }
         },
@@ -52,11 +51,9 @@
                     alert('Something bad happened ' + error);
                 }
             },
-            createModel() {
-                var url = "https://localhost:44368/api/Models";
+            createJob() {
+                var url = "https://localhost:44368/api/Jobs";
                 this.send(url);
             }
         }
-    };
-
-</script>
+    };</script>

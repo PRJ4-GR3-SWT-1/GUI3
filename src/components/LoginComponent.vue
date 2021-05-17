@@ -8,7 +8,6 @@
         <input v-model="form.password" class="input" type="password" placeholder="MeGetAvanc4RetPaSsW0rD" /><br />
 
         <button v-on:click="login">Login</button>
-        <button v-on:click="register">Register new user</button>
 
     </div>
 </template>
@@ -34,7 +33,7 @@ export default {
                 try {
                     let response = await fetch(url, {
                         method: "POST",
-                        body: JSON.stringify(this.form),//Assumes data is in an object called form
+                        body: JSON.stringify(this.form),//Assumes data is in an object called 'form'
                         headers: new Headers({
                             "Content-Type": "application/json"
                         })
@@ -43,8 +42,7 @@ export default {
                     if (response.ok) {
                         let token = await response.json();
                         localStorage.setItem("token", token.jwt);
-                        //Change view to some other component
-                        // ...
+                       //Goto frontpage
                         this.$router.push('/');
                     }
                     else {
@@ -54,10 +52,8 @@ export default {
                     alert("Error: " + err);
                 }
                 return;
-            },
-            async register() {
-                alert('not impl');
             }
+           
         }
         
     };
