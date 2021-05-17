@@ -4,10 +4,20 @@
             Type in username and password below
         </p>
 
+        <p>Username: </p>
         <input name="this.form.email" v-model="form.email" class="input" type="email" placeholder="Enter email" />
-        <input v-model="form.password" class="input" type="password" placeholder="MeGetAvanc4RetPaSsW0rD" />
-
+        
+        <br/>
+            <p>Password</p> <input v-model="form.password" class="input" type="password" placeholder="MeGetAvanc4RetPaSsW0rD" />
+        
+        <br />
+        <br />
+        
         <button v-on:click="login">Login</button>
+        
+        <div>
+            <p>No user? Register here: </p>
+        </div>
         <button v-on:click="register">Register new user</button>
 
     </div>
