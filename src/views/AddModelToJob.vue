@@ -10,7 +10,7 @@
                     <th>Name</th>
                     <th>PhoneNumber</th>
                     <th>City</th>
-                    <th>Birthday</th>
+                    <th>Email</th>
                     <th>Nationality</th>
                 </tr>
             </thead>
@@ -19,7 +19,7 @@
                 <td>{{model.firstName}} {{model.lastName}}</td>
                 <td>{{model.phoneNo}}</td>
                 <td>{{model.city}}</td>
-                <td>{{model.birthDate}}</td>
+                <td>{{model.email}}</td>
                 <td>{{model.nationality}}</td>
             </tr>
         </table>
@@ -43,8 +43,8 @@
         data: function () {
             return {
                 ModelJobForm: {
-                    ModelIdNumber: Number,
-                    JobIdNumber: Number
+                    ModelIdNumber: null,
+                    JobIdNumber: null
                 },
                 models: []
             }
@@ -55,29 +55,10 @@
             msg: String,
         },
         methods: {
-            send(url) {
-                try {
-                    fetch(url, {
-                        method: 'POST',
-                        body: JSON.stringify(this.ModelJobForm), // data is saved in form
-                        credentials: 'include',
-                        headers: {
-                            'Authorization': 'Bearer ' + localStorage.getItem("token"),
-                            'Content-Type': 'application/json'
-                        }
-                    }).then(responseJson => {
-                        this.response = responseJson;
-                        alert(responseJson.statusText)
-                    })
-                }
-                catch (error) {
-                    alert('Something bad happened ' + error);
-                }
-            },
-            load() {
+           async load() {
                 var url = "https://localhost:44368/api/Models";
                 try {
-                    fetch(url, {
+                   await fetch(url, {
                         method: 'GET',
                         //body: JSON.stringify(this.form), // data is saved in form
                         credentials: 'include',
@@ -87,14 +68,14 @@
                         }
                     }).then(response =>
                         //this.jobs = responseJson;
-                        response.json()
+                       response.json()
                     )
                         .then(data => {
                             this.models = data;
                         })
                 }
                 catch (error) {
-                    alert('Something bad happened ' + error);
+                    alert("You dont have permission for this");
                 }
             },
             AddModelJob()
@@ -111,7 +92,8 @@
                         }
                     }).then(responseJson => {
                         this.response = responseJson;
-                        alert(responseJson.statusText)
+                        if (this.response.status >= 200 && this.response.status < 300) alert("Successfully added model to job");
+                        else alert("Model already added to job")
                     })
                 }
                 catch (error) {
@@ -131,7 +113,8 @@
                         }
                     }).then(responseJson => {
                         this.response = responseJson;
-                        alert(responseJson.statusText)
+                        if (this.response.status >= 200 && this.response.status < 300) alert("Successfully removed model from job");
+                        else alert("Model already removed from job")
                     })
                 }
                 catch (error) {
