@@ -11,7 +11,7 @@
 
         <hr />
         <hr />
-        <button v-on:click="load">Show All Expenses</button>
+        <button v-on:click="load" class="create">Show All Expenses</button>
         <table width="100%">
             <thead>
                 <tr>
@@ -72,7 +72,7 @@
                     })
                 }
                 catch (error) {
-                    alert("You dont have permission for this");
+                    alert("You don't have permission for this");
                 }
             },
             AddExpense()

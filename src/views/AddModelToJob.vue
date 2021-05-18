@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Add/Remove a model to/from a job</h1>
-        <button v-on:click="load">Show All models</button>
+        <button v-on:click="load" class="create">Show All models</button>
 
         <table width="100%">
             <thead>
@@ -75,7 +75,7 @@
                         })
                 }
                 catch (error) {
-                    alert("You dont have permission for this");
+                    alert("You don't have permission for this");
                 }
             },
             AddModelJob()
