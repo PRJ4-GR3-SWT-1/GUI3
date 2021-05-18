@@ -5,6 +5,7 @@
       <table width="100%" >
           <thead>
               <tr>
+                  <th>JobId</th>
                   <th>Customer</th>
                   <th>Location</th>
                   <th>Date</th>
@@ -13,6 +14,7 @@
               </tr>
           </thead>
           <tr v-for="job in jobs" v-bind:key="job" >
+              <td>{{job.efJobId}}</td>
               <td>{{job.customer}}</td>
               <td>{{job.location}}</td>
               <td>{{job.startDate}}</td>

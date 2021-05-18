@@ -44,6 +44,11 @@ const routes = [
         name: "Expenses",
         component: () => import(/* webpackChunkName: "about" */ "../views/Expenses.vue"),
     },
+    {
+        path: "/AddModelToJob",
+        name: "AddModelToJob",
+        component: () => import(/* webpackChunkName: "about" */ "../views/AddModelToJob.vue"),
+    },
 ];
 
 const router = new VueRouter({
