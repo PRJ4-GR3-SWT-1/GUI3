@@ -1,15 +1,17 @@
 <template>
     <div id="app">
         <div id="nav">
+            
             <router-link to="/">Home</router-link> |
             <router-link to="/Login">Login</router-link> 
-            <div v-if="isLoggedIn()">
+            <div v-if="isLoggedIn()" style="margin: 5px;background-color:lightgray">
                 <router-link to="/Managers">Create Manager</router-link> |
                 <router-link to="/Models">Create Model</router-link> |
                 <router-link to="/Expenses">Expenses</router-link> |
                 <router-link to="/CreateJob">Create Job</router-link> |
                 <router-link to="/Jobs">Jobs</router-link> |
                 <router-link to="/AddModelToJob">JobToModel</router-link>
+                <button class="logout" v-on:click="logout()">logout</button>
             </div>
      
         </div>
@@ -63,6 +65,11 @@
         margin: 4px 2px;
         cursor: pointer;
     }
+    .logout {
+        background-color: palevioletred;
+        border: none;
+        margin:10px;
+    }
 </style>
 
 <script>
@@ -70,6 +77,10 @@
         methods: {
             isLoggedIn() {
                 return !!localStorage.getItem('token');
+            },
+            logout() {
+                localStorage.removeItem('token')
+                this.$router.push('/');
             }
         }
     }

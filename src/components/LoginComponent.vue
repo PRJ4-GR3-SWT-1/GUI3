@@ -6,7 +6,7 @@
 
         <form>
             <label>Username: </label>
-            <input name="this.form.email" v-model="form.email" class="input" type="email" placeholder="Enter email" /> <br />
+            <input name="email" v-model="form.email" class="input" type="email" placeholder="Enter email" /> <br />
             <label>Password: </label>
             <input v-model="form.password" class="input" type="password" placeholder="MeGetAvanc4RetPaSsW0rD" />
             <br />

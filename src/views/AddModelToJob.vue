@@ -24,6 +24,7 @@
             </tr>
         </table>
         <hr />
+        <h3>Actions:</h3>
         <hr />
 
         <input v-model="ModelJobForm.ModelIdNumber" class="input" type="number" placeholder="Model Id" min="1" /><br />
