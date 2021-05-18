@@ -69,8 +69,6 @@
     export default {
         methods: {
             isLoggedIn() {
-                console.log(localStorage.getItem('token'));
-                console.log("BOB");
                 return !!localStorage.getItem('token');
             }
         }
