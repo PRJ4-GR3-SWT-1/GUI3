@@ -1,20 +1,19 @@
 <template>
   <div class="hello">
-
     <h1>{{ msg }}</h1>
     <p>
-      Click around. You will find that as a manager you have more access than a model. 
+      Click around. You will find that as a manager you have more access than a
+      model.
     </p>
-
   </div>
 </template>
 
 <script>
-   // let login = localStorage.getitem('jwt');
+// let login = localStorage.getitem('jwt');
 export default {
   name: "HelloWorld",
   props: {
-      msg: String,
+    msg: String,
   },
 };
 </script>
