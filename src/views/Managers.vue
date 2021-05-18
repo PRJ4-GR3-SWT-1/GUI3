@@ -1,6 +1,6 @@
 <template>
     <div class="about">
-        <h1>Create a new Person</h1>
+        <h1>Create a new manager</h1>
         <form>
             <label> Enter email: </label>
             <input v-model="form.email" class="input" type="email" placeholder="Enter email" maxlength="64" minLength="1" /><br />

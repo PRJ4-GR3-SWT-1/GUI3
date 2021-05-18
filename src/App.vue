@@ -2,14 +2,16 @@
     <div id="app">
         <div id="nav">
             <router-link to="/">Home</router-link> |
-            <router-link to="/Login">Login</router-link> |
-            <router-link to="/Managers">Create Manager</router-link> |
-            <router-link to="/Models">Create Model</router-link> |
-            <router-link to="/Expenses">Expenses</router-link> |
-            <router-link to="/CreateJob">Create Job</router-link> |
-            <router-link to="/Jobs">Jobs</router-link> |
-            <router-link to="/AddModelToJob">JobToModel</router-link>
-
+            <router-link to="/Login">Login</router-link> 
+            <div v-if="isLoggedIn()">
+                <router-link to="/Managers">Create Manager</router-link> |
+                <router-link to="/Models">Create Model</router-link> |
+                <router-link to="/Expenses">Expenses</router-link> |
+                <router-link to="/CreateJob">Create Job</router-link> |
+                <router-link to="/Jobs">Jobs</router-link> |
+                <router-link to="/AddModelToJob">JobToModel</router-link>
+            </div>
+     
         </div>
         <router-view />
     </div>
@@ -62,3 +64,16 @@
         cursor: pointer;
     }
 </style>
+
+<script>
+    export default {
+        methods: {
+            isLoggedIn() {
+                console.log(localStorage.getItem('token'));
+                console.log("BOB");
+                return !!localStorage.getItem('token');
+            }
+        }
+    }
+
+</script>

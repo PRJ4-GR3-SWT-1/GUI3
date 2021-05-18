@@ -12,7 +12,7 @@
 <script>
    // let login = localStorage.getitem('jwt');
 export default {
-  name: "Home - Models forever",
+  name: "HelloWorld",
   props: {
       msg: String,
   },
