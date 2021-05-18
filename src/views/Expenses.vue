@@ -72,7 +72,7 @@
                     })
                 }
                 catch (error) {
-                    alert("You don't have permission for this");
+                    alert("Could not load data. Maybe you don't have permission for this. ");
                 }
             },
             AddExpense()
@@ -94,7 +94,7 @@
                     })
                 }
                 catch (error) {
-                    alert('Something bad happened ' + error);
+                    alert("Could not post data. Maybe you don't have permission for this. "+error);
                 }
             }
         },

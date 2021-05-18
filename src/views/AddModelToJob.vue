@@ -76,16 +76,15 @@
                         })
                 }
                 catch (error) {
-                    alert("You don't have permission for this");
+                    alert("Could not load data. Maybe you don't have permission for this. ");
                 }
             },
-            AddModelJob()
-            {
+            AddModelJob(){
                 var url = "https://localhost:44368/api/Jobs/" + this.ModelJobForm.JobIdNumber + "/model/" + this.ModelJobForm.ModelIdNumber;
                 try {
                     fetch(url, {
                         method: 'POST',
-                        body: "", // data is saved in form
+                        body: "", // all necesary data in URL
                         credentials: 'include',
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem("token"),
@@ -106,7 +105,7 @@
                 try {
                     fetch(url, {
                         method: 'DELETE',
-                        body: "", // data is saved in form
+                        body: "", // all necesary data in URL
                         credentials: 'include',
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem("token"),

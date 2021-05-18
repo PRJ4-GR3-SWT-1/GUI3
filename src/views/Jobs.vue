@@ -1,7 +1,7 @@
 <template>
   <div class="about" style="align-content:center;">
     <h1>Current Jobs</h1>
-      <button v-on:click="load">Show Jobs</button>
+      <button v-on:click="load" class="create">Show Jobs</button>
       <table width="100%" >
           <thead>
               <tr>

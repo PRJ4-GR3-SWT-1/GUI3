@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to MODELS" />
+    <HelloWorld msg="Welcome to MODELS" /><!--Using default out-of-the-box component-->
   </div>
 </template>
 
