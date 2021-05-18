@@ -1,19 +1,20 @@
 <template>
-  <div id="app">
-      <div id="nav">
-          <router-link to="/">Home</router-link> |
-          <router-link to="/Login">Login</router-link> |
-          <router-link to="/Managers">Create Manager</router-link> |
-          <router-link to="/Models">Create Model</router-link> |
-          <router-link to="/Expenses">Expenses</router-link> |
-          <router-link to="/CreateJob">Create Job</router-link> |
-          <router-link to="/Jobs">Jobs</router-link> |
-          <router-link to="/AddModelToJob">JobToModel</router-link>
+    <div id="app">
+        <div id="nav">
+            <router-link to="/">Home</router-link> |
+            <router-link to="/Login">Login</router-link> |
+            <router-link to="/Managers">Create Manager</router-link> |
+            <router-link to="/Models">Create Model</router-link> |
+            <router-link to="/Expenses">Expenses</router-link> |
+            <router-link to="/CreateJob">Create Job</router-link> |
+            <router-link to="/Jobs">Jobs</router-link> |
+            <router-link to="/AddModelToJob">JobToModel</router-link>
 
         </div>
         <router-view />
     </div>
 </template>
+
 
 <style>
     #app {
@@ -28,15 +29,14 @@
         padding: 30px;
     }
 
-    #nav a {
-        font-weight: bold;
-        color: #2c3e50;
-    }
+        #nav a {
+            font-weight: bold;
+            color: #2c3e50;
+        }
 
-    #nav a.router-link-exact-active 
-    {
-        color: #42b983;
-    }
+            #nav a.router-link-exact-active {
+                color: #42b983;
+            }
 
 
     .inputComment {
@@ -61,5 +61,4 @@
         margin: 4px 2px;
         cursor: pointer;
     }
-
 </style>

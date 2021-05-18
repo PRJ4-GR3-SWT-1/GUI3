@@ -1,13 +1,18 @@
 <template>
     <div class="about">
         <h1>Create a new Job</h1>
-        <input v-model="form.Customer" class="input" type="text" placeholder="Custumer" /><br />
-        <input v-model="form.StartDate"  class="input" type="date" /><br />
-        <input v-model.number="form.Days" class="input" type="number" placeholder="Number of days" /><br />
-        <input v-model="form.Location"  class="input" type="text" placeholder="Location" /><br />
-        <input v-model="form.Comments" class="input" type="text" placeholder="Futher comments" /><br />
 
-        <button v-on:click="createJob" class="create">Create new Job</button>
+        <form>
+            <label>Customer: </label>
+            <input v-model="form.Customer" class="input" type="text" placeholder="Custumer" /><br /> 
+            <input v-model="form.StartDate" class="input" type="date" /><br />
+            <input v-model.number="form.Days" class="input" type="number" placeholder="Number of days" /><br />
+            <input v-model="form.Location" class="input" type="text" placeholder="Location" /><br />
+            <input v-model="form.Comments" class="input" type="text" placeholder="Futher comments" /><br />
+
+            <button v-on:click="createJob" class="create">Create new Job</button>
+        </form>
+        
 
 
     </div>
@@ -21,7 +26,7 @@
                 form: {
                     Customer: '',
                     StartDate: '',
-                    Days: Number,
+                    Days: null,
                     Location: '',
                     Comments: ''
                 }

@@ -4,16 +4,15 @@
             Type in username and password below
         </p>
 
-        <p>Username: </p>
-        <input name="this.form.email" v-model="form.email" class="input" type="email" placeholder="Enter email" />
-        
-        <br/>
-            <p>Password</p> <input v-model="form.password" class="input" type="password" placeholder="MeGetAvanc4RetPaSsW0rD" />
-        
-        <br />
-        <br />
-        
-        <button v-on:click="login">Login</button>
+        <form>
+            <label>Username: </label>
+            <input name="this.form.email" v-model="form.email" class="input" type="email" placeholder="Enter email" /> <br />
+            <label>Password: </label>
+            <input v-model="form.password" class="input" type="password" placeholder="MeGetAvanc4RetPaSsW0rD" />
+            <br />
+            <br />
+        </form>
+        <button v-on:click="login" class="create">Login</button>
 
     </div>
 </template>
