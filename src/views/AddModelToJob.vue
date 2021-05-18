@@ -1,5 +1,5 @@
 <template>
-    <div class="about">
+    <div>
         <h1>Add/Remove a model to/from a job</h1>
         <button v-on:click="load">Show All models</button>
 
@@ -14,7 +14,7 @@
                     <th>Nationality</th>
                 </tr>
             </thead>
-            <tr v-for="model in models" v-bind:key="model">
+            <tr v-for="(model, index) in models" v-bind:key="index">
                 <td>{{model.efModelId}}</td>
                 <td>{{model.firstName}} {{model.lastName}}</td>
                 <td>{{model.phoneNo}}</td>
@@ -26,8 +26,8 @@
         <hr />
         <hr />
 
-        <input v-model="form.ModelIdNumber" class="input" type="number" placeholder="Model Id" /><br />
-        <input v-model="form.JobIdNumber" class="input" type="number" placeholder="Job Id" /><br />
+        <input v-model="ModelJobForm.ModelIdNumber" class="input" type="number" placeholder="Model Id" /><br />
+        <input v-model="ModelJobForm.JobIdNumber" class="input" type="number" placeholder="Job Id" /><br />
 
         <button v-on:click="AddModelJob" class="create">Add Model to job</button> <br />
         <button v-on:click="RemoveModelJob" class="create">Remove Model from job</button>
@@ -42,7 +42,7 @@
         name: "AddModelToJobComponent",
         data: function () {
             return {
-                form: {
+                ModelJobForm: {
                     ModelIdNumber: Number,
                     JobIdNumber: Number
                 },
@@ -59,7 +59,7 @@
                 try {
                     fetch(url, {
                         method: 'POST',
-                        body: JSON.stringify(this.form), // data is saved in form
+                        body: JSON.stringify(this.ModelJobForm), // data is saved in form
                         credentials: 'include',
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem("token"),
@@ -99,7 +99,7 @@
             },
             AddModelJob()
             {
-                var url = "https://localhost:44368/api/Jobs/" + this.form.JobIdNumber + "/model/" + this.form.ModelIdNumber;
+                var url = "https://localhost:44368/api/Jobs/" + this.ModelJobForm.JobIdNumber + "/model/" + this.ModelJobForm.ModelIdNumber;
                 try {
                     fetch(url, {
                         method: 'POST',
@@ -119,7 +119,7 @@
                 }
             },
             RemoveModelJob() {
-                var url = "https://localhost:44368/api/Jobs/" + this.form.JobIdNumber + "/model/" + this.form.ModelIdNumber;
+                var url = "https://localhost:44368/api/Jobs/" + this.ModelJobForm.JobIdNumber + "/model/" + this.ModelJobForm.ModelIdNumber;
                 try {
                     fetch(url, {
                         method: 'DELETE',

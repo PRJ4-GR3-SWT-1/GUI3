@@ -13,7 +13,7 @@
                   <th>Comments</th>
               </tr>
           </thead>
-          <tr v-for="job in jobs" v-bind:key="job" >
+          <tr v-for="(job,index) in jobs" v-bind:key="index" >
               <td>{{job.efJobId}}</td>
               <td>{{job.customer}}</td>
               <td>{{job.location}}</td>
