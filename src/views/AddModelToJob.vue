@@ -26,8 +26,8 @@
         <hr />
         <hr />
 
-        <input v-model="ModelJobForm.ModelIdNumber" class="input" type="number" placeholder="Model Id" /><br />
-        <input v-model="ModelJobForm.JobIdNumber" class="input" type="number" placeholder="Job Id" /><br />
+        <input v-model="ModelJobForm.ModelIdNumber" class="input" type="number" placeholder="Model Id" min="1" /><br />
+        <input v-model="ModelJobForm.JobIdNumber" class="input" type="number" placeholder="Job Id" min="1"/><br />
 
         <button v-on:click="AddModelJob" class="create">Add Model to job</button> <br />
         <button v-on:click="RemoveModelJob" class="create">Remove Model from job</button>

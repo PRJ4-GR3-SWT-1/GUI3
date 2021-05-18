@@ -1,14 +1,18 @@
 <template>
     <div class="about">
-        <h1>Create a new Person</h1>
-        <input name="form.email" v-model="form.email" class="input" type="email" placeholder="Enter email" /><br />
-        <input name="form.email" v-model="form.firstname" class="input" type="text" placeholder="First Name" /><br />
-        <input name="form.email" v-model="form.lastname" class="input" type="text" placeholder="Last name" /><br />
-        <input name="form.email" v-model="form.password" class="input" type="password" placeholder="Password" /><br />
-        <input v-model="form.phonenumber" class="input" type="number" placeholder="phone number" /><br />
+        <h1>Create a new manager</h1>
+        <form>
+            <label> Enter email: </label>
+            <input v-model="form.email" class="input" type="email" placeholder="Enter email" maxlength="64" minLength="1" /><br />
+            <label> Enter firstname: </label>
+            <input v-model="form.firstname" class="input" type="text" placeholder="First Name" maxlength="32" minLength="1" /><br />
+            <label> Enter lastname: </label>
+            <input v-model="form.lastname" class="input" type="text" placeholder="Last name" maxlength="254" minLength="1" /><br />
+            <label> Enter password: </label>
+            <input v-model="form.password" class="input" type="password" placeholder="Password" maxlength="60" minLength="1" /><br />
+        </form>
 
-        <button v-on:click="createManager">Create Manager</button>
-        <button v-on:click="createModel">Create Model</button>
+        <button v-on:click="createManager" class="create">Create Manager</button>
 
 
     </div>
@@ -24,7 +28,6 @@
                     firstname: '',
                     lastname: '',
                     email: '',
-                    phonenumber: '',
                     password: ''
                 }
             }
@@ -53,15 +56,11 @@
                     alert('Something bad happened ' + error);
                 }
             },
-            createModel() {
-                var url = "https://localhost:44368/api/Models";
-                this.send(url);
-            },
             createManager() {
                 var url = "https://localhost:44368/api/Managers";
                 this.send(url);
             }
-            
+
 
         }
 

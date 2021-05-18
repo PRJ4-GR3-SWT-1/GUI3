@@ -1,27 +1,37 @@
 <template>
     <div class="about">
         <h1>Create a new Job</h1>
-        <input v-model="form.Custumer" class="input" type="text" placeholder="Custumer" /><br />
-        <input v-model="form.StartDate"  class="input" type="date" /><br />
-        <input v-model.number="form.Days" class="input" type="number" placeholder="Number of days" /><br />
-        <input v-model="form.Location"  class="input" type="text" placeholder="Location" /><br />
-        <input v-model="form.Comments" class="input" type="text" placeholder="Futher comments" /><br />
 
-        <button v-on:click="createJob">Create new Job</button>
+        <form>
+            <label>Customer: </label>
+            <input v-model="form.Customer" class="input" type="text" placeholder="Customer" /><br />
+            <label>Startdate: </label>
+            <input v-model="form.StartDate" class="input" type="date" /><br />
+            <label>Number of days: </label>
+            <input v-model.number="form.Days" class="input" type="number" placeholder="Number of days" /><br />
+            <label>Location: </label>
+            <input v-model="form.Location" class="input" type="text" placeholder="Location" /><br />
+            <label>Comments: </label>
+            <input v-model="form.Comments" class="input" type="text" placeholder="Futher comments" /><br />
+
+            <button v-on:click="createJob" class="create">Create new Job</button>
+        </form>
+
 
 
     </div>
 </template>
 
 
-<script>export default {
+<script>
+    export default {
         name: "CreateJobComponent",
         data: function () {
             return {
                 form: {
                     Customer: '',
                     StartDate: '',
-                    Days: Number,
+                    Days: null,
                     Location: '',
                     Comments: ''
                 }
