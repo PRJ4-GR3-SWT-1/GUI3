@@ -8,7 +8,7 @@
         class="input"
         type="email"
         placeholder="Enter email"
-        maxlength="64"
+        maxlength="254"
         minLength="1"
       /><br />
       <label> Enter firstname: </label>
@@ -17,7 +17,7 @@
         class="input"
         type="text"
         placeholder="First Name"
-        maxlength="32"
+        maxlength="64"
         minLength="1"
       /><br />
       <label> Enter lastname: </label>
@@ -26,7 +26,7 @@
         class="input"
         type="text"
         placeholder="Last name"
-        maxlength="254"
+        maxlength="32"
         minLength="1"
       /><br />
       <label> Enter password: </label>
@@ -75,7 +75,9 @@ export default {
         }).then((responseJson) => {
           this.response = responseJson;
           if (responseJson.status >= 200 && responseJson.status < 300)
-            alert("Creation Successful");
+              alert("Creation Successful");
+          else if (responseJson.status == 400)
+              alert("Missing data or incorrect input.");
           else
             alert(
               "Could not post data. Maybe you don't have permission for this. "

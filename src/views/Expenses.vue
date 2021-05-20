@@ -108,8 +108,10 @@ export default {
         }).then((responseJson) => {
           this.response = responseJson;
           if (this.response.status >= 200 && this.response.status < 300)
-            alert("Successfully added expense to job");
-          else alert("Error");
+              alert("Successfully added expense to job");
+          else if (responseJson.status == 400)
+              alert("Missing data or incorrect input.");
+          else alert("You don't have permission for this.");
         });
       } catch (error) {
         alert(

@@ -4,6 +4,13 @@
     <p>
       Click around. You will find that as a manager you have more access than a
       model.
+        <br />
+        ************* OBS: NOTE FROM DEVELOPERS! ****************
+        <br />
+        There have been made some changes to the WebAPI, which Poul Ejner gave us. <br />
+        The changes can be seen in the ExpensesController (l. 107). <br />
+        The change automatically adds modelId to expense or 8055 if a manager adds an expense to job.  
+
     </p>
   </div>
 </template>

@@ -205,9 +205,9 @@ export default {
     msg: String,
   },
   methods: {
-    send(url) {
+    async send(url) {
       try {
-        fetch(url, {
+        await fetch(url, {
           method: "POST",
           body: JSON.stringify(this.modelform), // data is saved in form
           credentials: "include",
@@ -217,12 +217,12 @@ export default {
           },
         }).then((responseJson) => {
           this.response = responseJson;
-          if (responseJson.status >= 200 && responseJson.status < 300)
-            alert("Creation Successful");
-          else
-            alert(
-              "Could not post data. Maybe you don't have permission for this. "
-            );
+            if (responseJson.status >= 200 && responseJson.status < 300)
+                alert("Creation Successful");
+            else if (responseJson.status == 400)
+                alert("Missing data or incorrect input.");
+            else
+                alert("Could not post data. Maybe you don't have permission for this. ");
         });
       } catch (error) {
         alert(
